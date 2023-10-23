@@ -26,7 +26,7 @@ export class AppComponent {
         });
       }, options);
 
-      const sections = this.elementRef.nativeElement.querySelectorAll('[section]');
+      const sections = this.elementRef.nativeElement.querySelectorAll('section[section]');
       sections.forEach((section: Element) => {
         observer.observe(section);
       });

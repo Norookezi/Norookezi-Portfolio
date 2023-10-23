@@ -1,6 +1,6 @@
-<nav class="md:h-full w-[33rem] max-md:w-full overflow-hidden [&.enabled]:max-md:max-h-[100vh] [&.disabled]:max-md:max-h-[0vh] duration-300" [ngClass]="dropdownState?'enabled':'disabled'">
-  <ul class="h-full flex relative items-center justify-center max-md:flex-col">
-    <li class="flex-1 text-center py-3 w-full max-md:w-1/2 uppercase text-md font-fjalla-one duration-300 [&.hover]:opacity-60 [&.active]:md:opacity-75 [&.active]:shadow-[inset_0px_-0.2em_0px_0px_rgba(21,128,61,1)] " [ngClass]="getIndex(navItem.label) == activeIndex ? 'active' : getIndex(navItem.label) == hoveredIndex ? 'hover': ''" [attr.section]="navItem.label" (mouseenter)="setHover($event)" (mouseleave)="resetHover()" (click)="setActive($event)" *ngFor="let navItem of sections">
+<nav class="items-start md:h-full w-[33rem] max-md:h-screen max-md:w-screen [&.disabled]:max-md:max-h-[0vh]" [ngClass]="dropdownState?'enabled':'disabled'">
+  <ul class="md:h-full flex max-md:bg-white max-md:h-screen relative items-center md:justify-center max-md:flex-col [&.enabled]:max-md:max-h-[100vh] [&.disabled]:max-md:max-h-[0vh] duration-300 overflow-hidden" [ngClass]="dropdownState?'enabled':'disabled'">
+    <li class="md:flex-1 text-center py-3 w-full max-md:w-1/2 uppercase text-md font-fjalla-one duration-300 [&.hover]:opacity-60 [&.active]:md:opacity-75 [&.active]:shadow-[inset_0px_-0.2em_0px_0px_rgba(21,128,61,1)] " [ngClass]="getIndex(navItem.label) == activeIndex ? 'active' : getIndex(navItem.label) == hoveredIndex ? 'hover': ''" [attr.section]="navItem.label" (mouseenter)="setHover($event)" (mouseleave)="resetHover()" (click)="setActive($event)" *ngFor="let navItem of sections">
       {{ navItem.label }}
     </li>
     <li name="active-item" class="bg-red-700 max-md:hidden h-[0.2rem] absolute bottom-0 duration-300" [ngStyle]="{'width': (100/sections.length) + '%', 'left': (100/sections.length * activeIndex) + '%'}"></li>

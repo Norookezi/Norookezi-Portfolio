@@ -1,4 +1,4 @@
-<header class="flex p-6 w-screen justify-between flex-wrap fixed" [ngClass]="mobileDropdownState?'h-full':''">
+<header class="z-40 flex p-6 w-screen justify-between flex-wrap fixed" [ngClass]="mobileDropdownState?'max-md:h-full':''">
   <span class="flex max-md:w-1/2 items-center text-2xl font-fjalla-one"><img class="w-12" src="../../../favicon.ico" alt="PandaCrp icon">PandaCrp</span>
   <div class="w-1/2 md:hidden flex items-center justify-end">
     <div (click)="toggleMobileDropdownState()" class="relative block w-8 aspect-square duration-300" [ngStyle]="{'transform': mobileDropdownState?'rotateZ(360deg)':'rotateZ(-360deg)'}">
@@ -10,7 +10,7 @@
       </svg>
     </div>
   </div>
-  <app-navbar class="max-md:w-full max-md:h-full"
+  <app-navbar class="max-md:w-screen -ml-6" [ngStyle]="{'heigh': (mobileDropdownState?'100vh':'auto')}"
     (mobileDropdownStateChange)="toggleMobileDropdownState($event)"
     [dropdownState]="mobileDropdownState"
   ></app-navbar>
